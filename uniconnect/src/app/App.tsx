@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider, useApp } from './context/AppContext.tsx';
 import { Header } from './components/Header.tsx';
 import { LoginPage } from './pages/LoginPage.tsx';
@@ -162,10 +162,10 @@ const AppContent: React.FC = () => {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <AppProvider>
         <AppContent />
       </AppProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
