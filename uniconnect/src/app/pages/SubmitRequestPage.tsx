@@ -123,7 +123,7 @@ export const SubmitRequestPage: React.FC = () => {
         formData.append('coverImage', coverImageFile);
       }
 
-      const res = await fetch('http://127.0.0.1:8000/api/submit-topic-request/', {
+      const res = await fetch('https://uniconnectforum.onrender.com/api/submit-topic-request/', {
         method: 'POST',
         body: formData
       });

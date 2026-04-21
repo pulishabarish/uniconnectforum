@@ -28,7 +28,7 @@ export const UserManagementPage: React.FC = () => {
 
   const loadUsers = async () => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/users/");
+      const res = await fetch("https://uniconnectforum.onrender.com/api/users/");
       if (!res.ok) {
         throw new Error(`users failed with ${res.status}`);
       }
@@ -70,7 +70,7 @@ export const UserManagementPage: React.FC = () => {
 
   const toggleUser = async (id: number) => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/toggle-user/", {
+      const res = await fetch("https://uniconnectforum.onrender.com/api/toggle-user/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: id })
@@ -97,7 +97,7 @@ export const UserManagementPage: React.FC = () => {
 
   const deleteUser = async (id: number) => {
     try {
-      const res = await fetch("http://127.0.0.1:8000/api/delete-user/", {
+      const res = await fetch("https://uniconnectforum.onrender.com/api/delete-user/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: id })

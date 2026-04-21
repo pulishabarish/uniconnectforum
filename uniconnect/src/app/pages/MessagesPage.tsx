@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import type { Conversation, Message, User } from '../types.ts';
 import { toast } from 'sonner';
 
-const API_BASE = 'http://127.0.0.1:8000/api';
+const API_BASE = 'https://uniconnectforum.onrender.com/api';
 
 const mapConversation = (item: any): Conversation => ({
   userId: String(item.userId),

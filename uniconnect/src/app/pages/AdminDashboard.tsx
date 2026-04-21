@@ -82,7 +82,7 @@ export const AdminDashboard: React.FC = () => {
 
   const loadPendingRequests = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/pending-topic-requests/');
+      const res = await fetch('https://uniconnectforum.onrender.com/api/pending-topic-requests/');
       const data = await res.json();
 
       const mapped = data.map((request: any) => ({
@@ -106,7 +106,7 @@ export const AdminDashboard: React.FC = () => {
 
   const loadTopics = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/admin-topics/');
+      const res = await fetch('https://uniconnectforum.onrender.com/api/admin-topics/');
       const data = await res.json();
 
       const mapped = data.map((topic: any) => ({
@@ -126,7 +126,7 @@ export const AdminDashboard: React.FC = () => {
 
   const loadUsers = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/users/');
+      const res = await fetch('https://uniconnectforum.onrender.com/api/users/');
       const data = await res.json();
 
       setUsers(
@@ -143,7 +143,7 @@ export const AdminDashboard: React.FC = () => {
 
   const loadReports = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/admin-reports/');
+      const res = await fetch('https://uniconnectforum.onrender.com/api/admin-reports/');
       if (!res.ok) {
         throw new Error(`admin-reports failed with ${res.status}`);
       }
@@ -181,7 +181,7 @@ export const AdminDashboard: React.FC = () => {
 
   const loadActivityLog = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/admin-activity-log/');
+      const res = await fetch('https://uniconnectforum.onrender.com/api/admin-activity-log/');
       if (!res.ok) {
         throw new Error(`admin-activity-log failed with ${res.status}`);
       }
@@ -205,7 +205,7 @@ export const AdminDashboard: React.FC = () => {
 
   const loadInsights = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/admin-insights/');
+      const res = await fetch('https://uniconnectforum.onrender.com/api/admin-insights/');
       if (!res.ok) {
         throw new Error(`admin-insights failed with ${res.status}`);
       }
@@ -219,7 +219,7 @@ export const AdminDashboard: React.FC = () => {
 
   const loadTrends = async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/admin-trends/');
+      const res = await fetch('https://uniconnectforum.onrender.com/api/admin-trends/');
       if (!res.ok) {
         throw new Error(`admin-trends failed with ${res.status}`);
       }
@@ -233,7 +233,7 @@ export const AdminDashboard: React.FC = () => {
 
   const handleToggleTopicStatus = async (id: string, nextStatus: 'approved' | 'inactive' | 'hidden') => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/toggle-topic-status/', {
+      const res = await fetch('https://uniconnectforum.onrender.com/api/toggle-topic-status/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -271,7 +271,7 @@ export const AdminDashboard: React.FC = () => {
 
   const handleRequestMoreInfo = async (id: string, title: string) => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/request-more-topic-info/', {
+      const res = await fetch('https://uniconnectforum.onrender.com/api/request-more-topic-info/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -314,7 +314,7 @@ export const AdminDashboard: React.FC = () => {
 
   const handleApprove = async (request: TopicRequestItem) => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/approve-topic-request/', {
+      const res = await fetch('https://uniconnectforum.onrender.com/api/approve-topic-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -365,7 +365,7 @@ export const AdminDashboard: React.FC = () => {
 
   const handleReject = async (id: string, title: string) => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/reject-topic-request/', {
+      const res = await fetch('https://uniconnectforum.onrender.com/api/reject-topic-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -402,7 +402,7 @@ export const AdminDashboard: React.FC = () => {
 
   const handleDelete = async (id: string, title: string) => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/delete-topic-request/', {
+      const res = await fetch('https://uniconnectforum.onrender.com/api/delete-topic-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -431,7 +431,7 @@ export const AdminDashboard: React.FC = () => {
 
   const handleResolveReport = async (reportId: string, status: 'under_review' | 'action_taken' | 'dismissed') => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/resolve-report/', {
+      const res = await fetch('https://uniconnectforum.onrender.com/api/resolve-report/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

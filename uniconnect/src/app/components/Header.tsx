@@ -95,7 +95,7 @@ export const Header: React.FC = () => {
   const loadNotifications = useCallback(() => {
     if (!currentUser) return;
 
-    fetch(`http://127.0.0.1:8000/api/notifications/${currentUser.id}/`)
+    fetch(`https://uniconnectforum.onrender.com/api/notifications/${currentUser.id}/`)
       .then(res => res.json())
       .then(data => setNotifications(
         data.map((notification: any) => ({
@@ -117,7 +117,7 @@ export const Header: React.FC = () => {
       role: currentUser.role,
     });
 
-    fetch(`http://127.0.0.1:8000/api/class-join-requests/?${params.toString()}`)
+    fetch(`https://uniconnectforum.onrender.com/api/class-join-requests/?${params.toString()}`)
       .then(res => res.json())
       .then(data => {
         const requests = Array.isArray(data) ? data : [];
@@ -137,7 +137,7 @@ export const Header: React.FC = () => {
       return;
     }
 
-    fetch(`http://127.0.0.1:8000/api/messages/conversations/${currentUser.id}/`)
+    fetch(`https://uniconnectforum.onrender.com/api/messages/conversations/${currentUser.id}/`)
       .then(res => res.json())
       .then(data => {
         const conversations = Array.isArray(data) ? data : [];
@@ -190,14 +190,14 @@ export const Header: React.FC = () => {
   }, [currentUser, loadNotifications, loadClassCounter, loadMessageCounter]);
 
   const loadFacultyRequests = () => {
-    fetch('http://127.0.0.1:8000/api/faculty_requests/')
+    fetch('https://uniconnectforum.onrender.com/api/faculty_requests/')
       .then(res => res.json())
       .then(data => setFacultyRequests(data))
       .catch(err => console.error('FACULTY REQUEST LOAD ERROR:', err));
   };
 
   const loadPendingTopicRequestsCount = () => {
-    fetch('http://127.0.0.1:8000/api/pending-topic-requests/')
+    fetch('https://uniconnectforum.onrender.com/api/pending-topic-requests/')
       .then(res => res.json())
       .then(data => setPendingTopicRequestsCount(data.length))
       .catch(err => console.error('TOPIC REQUEST LOAD ERROR:', err));
@@ -205,7 +205,7 @@ export const Header: React.FC = () => {
 
   const approveFaculty = async (userId: number) => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/approve_faculty/', {
+      const res = await fetch('https://uniconnectforum.onrender.com/api/approve_faculty/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id: userId })

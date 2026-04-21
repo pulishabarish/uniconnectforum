@@ -80,7 +80,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   const [topics, setTopics] = useState<Topic[]>(mockTopics);
 //   const [topics, setTopics] = useState<Topic[]>([]);
 //   useEffect(() => {
-//   fetch("http://127.0.0.1:8000/api/topics/")
+//   fetch("https://uniconnectforum.onrender.com/api/topics/")
 //     .then(res => res.json())
 //     .then(data => {
 //       console.log("RAW API:", data);
@@ -603,7 +603,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   const markNotificationAsRead = (notificationId: string) => {
-    fetch('http://127.0.0.1:8000/api/mark-notification-read/', {
+    fetch('https://uniconnectforum.onrender.com/api/mark-notification-read/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ notification_id: notificationId })
@@ -618,7 +618,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
 
   const markAllNotificationsAsRead = () => {
     if (currentUser) {
-      fetch('http://127.0.0.1:8000/api/mark-all-notifications-read/', {
+      fetch('https://uniconnectforum.onrender.com/api/mark-all-notifications-read/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id: currentUser.id })
@@ -633,7 +633,7 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({ children }) => 
   };
 
   const deleteNotification = (notificationId: string) => {
-    fetch('http://127.0.0.1:8000/api/delete-notification/', {
+    fetch('https://uniconnectforum.onrender.com/api/delete-notification/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ notification_id: notificationId })

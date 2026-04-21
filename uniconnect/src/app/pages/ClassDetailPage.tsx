@@ -6,7 +6,7 @@ import { PopupDialog } from '../components/PopupDialog.tsx';
 import { getRoleBadgeColor } from '../utils/helpers.ts';
 import type { Class, ClassDiscussion, ClassDiscussionReply, ClassResource } from '../types';
 
-const API_BASE = 'http://127.0.0.1:8000/api';
+const API_BASE = 'https://uniconnectforum.onrender.com/api';
 
 type EnrolledStudent = {
   id: string;
@@ -103,7 +103,7 @@ const resolveResourceHref = (url?: string) => {
   if (url.startsWith('http://') || url.startsWith('https://')) {
     return url;
   }
-  return `http://127.0.0.1:8000${url.startsWith('/') ? url : `/${url}`}`;
+  return `https://uniconnectforum.onrender.com${url.startsWith('/') ? url : `/${url}`}`;
 };
 
 export const ClassDetailPage: React.FC = () => {
