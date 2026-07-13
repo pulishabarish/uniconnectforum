@@ -41,8 +41,8 @@ export const HomePage: React.FC = () => {
 
     const query = params.toString();
     const url = query
-      ? `https://uniconnectforum.onrender.com/api/topics/?${query}`
-      : 'https://uniconnectforum.onrender.com/api/topics/';
+      ? `http://localhost:8000/api/topics/?${query}`
+      : 'http://localhost:8000/api/topics/';
 
     fetch(url)
       .then(res => res.json())
@@ -54,7 +54,7 @@ export const HomePage: React.FC = () => {
           imageUrl: t.COVER_IMAGE_PATH
             ? (String(t.COVER_IMAGE_PATH).startsWith('http')
                 ? t.COVER_IMAGE_PATH
-                : `https://uniconnectforum.onrender.com${t.COVER_IMAGE_PATH}`)
+                : `http://localhost:8000${t.COVER_IMAGE_PATH}`)
             : undefined,
           category: categoryNameToSlug[t.CATEGORY_NAME] || 'campus-events-general',
           authorId: String(t.CREATED_BY),
@@ -108,7 +108,7 @@ export const HomePage: React.FC = () => {
     );
 
     try {
-      const res = await fetch('https://uniconnectforum.onrender.com/api/upvote-topic/', {
+      const res = await fetch('http://localhost:8000/api/upvote-topic/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

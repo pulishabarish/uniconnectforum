@@ -105,7 +105,7 @@ export const CreateTopicPage: React.FC = () => {
         formData.append('coverImage', coverImageFile);
       }
 
-      const res = await fetch('https://uniconnectforum.onrender.com/api/create-topic/', {
+      const res = await fetch('http://localhost:8000/api/create-topic/', {
         method: 'POST',
         body: formData,
       });

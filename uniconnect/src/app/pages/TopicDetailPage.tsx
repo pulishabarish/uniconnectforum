@@ -49,7 +49,7 @@ type PostItem = {
   UPDATED_AT?: string | null;
 };
 
-const API_BASE = "https://uniconnectforum.onrender.com/api";
+const API_BASE = "http://localhost:8000/api";
 
 const normalizeRole = (role?: string): UserRole => {
   const lower = String(role || "student").toLowerCase();
@@ -61,7 +61,7 @@ const normalizeRole = (role?: string): UserRole => {
 
 const buildImageUrl = (path?: string | null) => {
   if (!path) return undefined;
-  return String(path).startsWith("http") ? String(path) : `https://uniconnectforum.onrender.com${path}`;
+  return String(path).startsWith("http") ? String(path) : `http://localhost:8000${path}`;
 };
 
 const formatAbsoluteDate = (value?: string) => {

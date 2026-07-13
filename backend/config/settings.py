@@ -21,10 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-j($at6=3+3j2=wtg8&$c=*_koz^w%sx$(3yxj+-q+3ec_m#dm7"
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "django-insecure-j($at6=3+3j2=wtg8&$c=*_koz^w%sx$(3yxj+-q+3ec_m#dm7",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "True").lower() in {"1", "true", "yes", "on"}
 
 ALLOWED_HOSTS = []
 
@@ -81,10 +84,10 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQL_DATABASE', 'Sp2026BIS698ThuG2s'),
-        'USER': os.getenv('MYSQL_USER', 'Sp2026BIS698ThuG2'),
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'warm'),
-        'HOST': os.getenv('MYSQL_HOST', '141.209.241.91'),
+        'NAME': os.getenv('MYSQL_DATABASE', 'university_forum'),
+        'USER': os.getenv('MYSQL_USER', 'root'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', ''),
+        'HOST': os.getenv('MYSQL_HOST', '127.0.0.1'),
         'PORT': os.getenv('MYSQL_PORT', '3306'),
     }
 }

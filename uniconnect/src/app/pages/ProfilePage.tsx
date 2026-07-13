@@ -109,7 +109,7 @@ export const ProfilePage: React.FC = () => {
 
     setIsProfileLoading(true);
 
-    fetch('https://uniconnectforum.onrender.com/api/users/')
+    fetch('http://localhost:8000/api/users/')
       .then(res => res.json())
       .then(data => {
         const matchedUser = (Array.isArray(data) ? data : []).find(
@@ -156,11 +156,11 @@ export const ProfilePage: React.FC = () => {
     const loadProfileActivity = async () => {
       try {
         const [topicsRes, repliesRes, notificationsRes, engagementRes, timelineRes] = await Promise.all([
-          fetch(`https://uniconnectforum.onrender.com/api/user-topics/${currentUser.id}/`),
-          fetch(`https://uniconnectforum.onrender.com/api/user-replies/${currentUser.id}/`),
-          fetch(`https://uniconnectforum.onrender.com/api/notifications/${currentUser.id}/`),
-          fetch(`https://uniconnectforum.onrender.com/api/user-engagement-summary/${currentUser.id}/`),
-          fetch(`https://uniconnectforum.onrender.com/api/topic-request-timelines/${currentUser.id}/`),
+          fetch(`http://localhost:8000/api/user-topics/${currentUser.id}/`),
+          fetch(`http://localhost:8000/api/user-replies/${currentUser.id}/`),
+          fetch(`http://localhost:8000/api/notifications/${currentUser.id}/`),
+          fetch(`http://localhost:8000/api/user-engagement-summary/${currentUser.id}/`),
+          fetch(`http://localhost:8000/api/topic-request-timelines/${currentUser.id}/`),
         ]);
 
         const [topicsData, repliesData, notificationsData, engagementData, timelineData] = await Promise.all([
@@ -309,7 +309,7 @@ export const ProfilePage: React.FC = () => {
   }
 
   const persistProfile = async (nextUser: User) => {
-    const res = await fetch('https://uniconnectforum.onrender.com/api/update-user-profile/', {
+    const res = await fetch('http://localhost:8000/api/update-user-profile/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

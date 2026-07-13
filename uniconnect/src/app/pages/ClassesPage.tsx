@@ -5,7 +5,7 @@ import { useApp } from '../context/AppContext.tsx';
 import { formatTimeAgo } from '../utils/helpers.ts';
 import type { Class, ClassJoinRequest } from '../types';
 
-const API_BASE = 'https://uniconnectforum.onrender.com/api';
+const API_BASE = 'http://localhost:8000/api';
 
 const mapClass = (item: any): Class => ({
   id: String(item.id),
